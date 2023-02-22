@@ -2,6 +2,15 @@
 
 int search(int numbers[], int low, int high, int value) 
 {
+	int middle = (high + low) / 2;
+	if(middle - low == 0 || high - middle == 0)
+		return -1;
+	if(numbers[middle] == value)
+		return middle;
+	if(numbers[middle] > middle)
+		search(numbers,middle, high, value);
+	if(numbers[middle] < middle)
+		search(numbers, low, middle, value);
 	return -1;
 }
 
