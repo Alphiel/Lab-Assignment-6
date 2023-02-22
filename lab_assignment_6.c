@@ -3,16 +3,19 @@
 
 int search(int numbers[], int low, int high, int value) 
 {
-	int middle = (high + low) / 2;
-	if(middle - low == 0 || high - middle == 0)
-		return -1;
-	if(numbers[middle] == value)
-		return middle;
-	if(numbers[middle] > middle)
-		search(numbers,middle, high, value);
-	if(numbers[middle] < middle)
-		search(numbers, low, middle, value);
-	return -1;
+  int middle = (high + low) / 2;
+  // checks if bounds still exist during recursion
+  if(middle - low == 0 || high - middle == 0)
+    return -1;
+  // begins searching the middle of low and high
+  else if(numbers[middle] == value)
+    return middle;
+  // if value != middle number, adjust search accordingly until found (or stop when done)
+  else if(numbers[middle] > value)
+    search(numbers, middle, high, value);
+  else if(numbers[middle] < value)
+    search(numbers, low, middle, value);
+  return -1;
 }
 
 void printArray(int numbers[], int sz)
