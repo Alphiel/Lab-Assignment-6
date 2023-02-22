@@ -12,9 +12,9 @@ int search(int numbers[], int low, int high, int value)
     return middle;
   // if value != middle number, adjust search accordingly until found (or stop when done)
   else if(numbers[middle] > value)
-    search(numbers, middle, high, value);
+    return search(numbers, middle, high, value);
   else if(numbers[middle] < value)
-    search(numbers, low, middle, value);
+    return search(numbers, low, middle, value);
   return -1;
 }
 
